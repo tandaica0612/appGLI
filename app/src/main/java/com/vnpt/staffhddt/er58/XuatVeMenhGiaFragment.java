@@ -193,8 +193,45 @@ public class XuatVeMenhGiaFragment extends BaseFragment implements View.OnClickL
                     // mau XML o day
                     String xmlChildData = "";
                     if (type == Common.TYPE_VE) {
-                        xmlChildData = "<Inv><key>" + keyData + "</key><Invoice><CusCode>" + StoreSharePreferences.getInstance(getContext()).loadStringSavedPreferences(Common.KEY_USER_NAME) + "</CusCode><Buyer></Buyer><CusName></CusName><CusAddress></CusAddress><CusPhone></CusPhone><CusTaxCode></CusTaxCode><PaymentMethod>TM, CK </PaymentMethod><KindOfService></KindOfService><Products><Product><ProdName>" + loaiPhi.getNAME() + "</ProdName><ProdUnit></ProdUnit><ProdQuantity></ProdQuantity><ProdPrice>" + loaiPhi.getTOTAL() + "</ProdPrice><Amount>" + loaiPhi.getTOTAL() + "</Amount><Extra1></Extra1><Extra2></Extra2></Product></Products><Total>" + loaiPhi.getTOTAL() + "</Total><VATRate>"+
-                                loaiPhi.getVAT_RATE() + "</VATRate><VATAmount>" + loaiPhi.getVAT_AMOUNT() + "</VATAmount><Amount>" + loaiPhi.getAMOUNT() + "</Amount><AmountInWords>"+ StringBienLai.docSo(loaiPhi.getAMOUNT()) +"</AmountInWords><Extra></Extra></Invoice></Inv>";
+                        xmlChildData = "<Inv>" +
+                                "<keyz>" + keyData + "</key>" +
+                                "<Invoice>" +
+                                "<Buyer>Khách lẻ</Buyer>" +
+                                "<CusCode>" + StoreSharePreferences.getInstance(getContext()).loadStringSavedPreferences(Common.KEY_USER_NAME) + "</CusCode>" +
+                                "<CusName></CusName>" +
+                                "<CusAddress></CusAddress>" +
+                                "<CusPhone></CusPhone>" +
+                                "<CusTaxCode></CusTaxCode>" +
+                                "<PaymentMethod>TM, CK</PaymentMethod>" +
+                                "<Extra1></Extra1>" +
+                                "<CurrencyUnit>VND</CurrencyUnit>" +
+                                "<KindOfService></KindOfService>" +
+                                "<Products>" +
+                                "<Product>" +
+                                "<ProdName>" + loaiPhi.getNAME() +"</ProdName>" +
+                                "<ProdUnit></ProdUnit>" +
+                                "<ProdQuantity></ProdQuantity>" +
+                                "<ProdPrice>" + loaiPhi.getTOTAL() + "</ProdPrice>" +
+                                "<VATAmount>0</VATAmount>" +
+                                "<Total>"+ loaiPhi.getTOTAL() +"</Total>" +
+                                "<Amount>" + loaiPhi.getTOTAL() + "</Amount>" +
+                                "<IsSum>0</IsSum>" +
+                                "</Product>" +
+                                "</Products>" +
+                                "<GrossValue>0</GrossValue>" +
+                                "<GrossValue0>0</GrossValue0>" +
+                                "<VatAmount0>0</VatAmount0>" +
+                                "<GrossValue5>0</GrossValue5>" +
+                                "<VatAmount5>0</VatAmount5>" +
+                                "<GrossValue10>0</GrossValue10>" +
+                                "<VatAmount10>0</VatAmount10>" +
+                                "<VATRate>"+loaiPhi.getVAT_RATE() + "</VATRate>" +
+                                "<VATAmount>" + loaiPhi.getVAT_AMOUNT() +"</VATAmount>" +
+                                "<Total>"+ loaiPhi.getAMOUNT() +"</Total>" +
+                                "<Amount>" + loaiPhi.getAMOUNT() +"</Amount>" +
+                                "<AmountInWords>"+ StringBienLai.docSo(loaiPhi.getAMOUNT()) +"</AmountInWords>" +
+                                "</Invoice>"+
+                                "</Inv>";
                     } else {
                         xmlChildData = "<Inv><key>" + keyData + "</key><Invoice><CusCode><![CDATA[" + keyData + "]]></CusCode><CusName><![CDATA[" + StoreSharePreferences.getInstance(getContext()).loadStringSavedPreferences(Common.KEY_USER_NAME) + "]]></CusName><CusAddress><![CDATA[]]></CusAddress><CusPhone></CusPhone><CusTaxCode></CusTaxCode><PaymentMethod><![CDATA[]]></PaymentMethod><Products><Product><Code><![CDATA[]]></Code><ProdName>"+loaiPhi.getNAME()+"</ProdName><ProdUnit>Lần</ProdUnit><ProdQuantity>1</ProdQuantity><ProdPrice>"+loaiPhi.getAMOUNT()+"</ProdPrice><Amount>1</Amount></Product></Products><KindOfService><![CDATA[]]></KindOfService><Total>"+loaiPhi.getTOTAL()+"</Total><Amount>"+loaiPhi.getAMOUNT()+"</Amount><AmountInWords>"+StringBienLai.docSo(loaiPhi.getAMOUNT())+"</AmountInWords></Invoice></Inv>";
                     }
